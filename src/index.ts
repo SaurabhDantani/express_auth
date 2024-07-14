@@ -17,6 +17,7 @@ import authEjs from "./utils/auth";
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
+app.use(cookieParser());
 
 
 
@@ -112,7 +113,7 @@ app.get('/login', async (req:Request,res:Response) => {
       return res.status(401).json({ message: "Invalid password" });
     }
     // const token = Jwt.sign({ member }, "ILove_Node", { expiresIn: '8h' });
-    const token = Jwt.sign({ member }, process.env.AUTH_SECRET_KEY || 'default_secret_key', { expiresIn: '8h' });
+    const token = Jwt.sign({ member }, process.env.AUTH_SECRET_KEY || 'default_secret_key', { expiresIn: '1s' });
     res.cookie('jwt', token, { httpOnly: true });
     res.redirect('/protected')
     // console.log("user token", token)

@@ -19,11 +19,11 @@ dotenv.config();
 // for testing  
 export const dataSource = new DataSource({
     type:'postgres',
-    host: process.env.DB_HOST,
-    port: 5432,
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database:process.env.DATABASE_NAME,//'family', //familytwo
+    host: 'aws-0-ap-south-1.pooler.supabase.com',
+    port: 6543,
+    username: 'postgres.vpcjuvgfiecgztcsgeck',
+    password: 'cP540n5MbKDUMr3J',
+    database:'postgres',//'family', //familytwo
     synchronize:true,
     migrationsRun: true,
     logging: false,
